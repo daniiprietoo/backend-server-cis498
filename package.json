@@ -4,14 +4,24 @@
   "description": "backend server for cis498",
   "main": "index.js",
   "scripts": {
+    "start": "node api/index.js",
+    "lint": "eslint .",
+    "dev": "nodemon api/index.js",
     "test": "test"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "nodemon": "^3.1.9",
     "pg": "^8.14.0"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "eslint": "^9.22.0",
+    "globals": "^16.0.0"
   }
 }
