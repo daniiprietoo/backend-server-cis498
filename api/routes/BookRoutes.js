@@ -43,9 +43,9 @@ bookRouter.post("/updateBook", async (req, res) => {
   }
 });
 
-bookRouter.get("/deleteBook", async (req, res) => {
+bookRouter.get("/deleteBook/book", async (req, res) => {
   try {
-    var id1 = req.body.id;
+    var id1 = req.query.id;
     console.log(id1);
     const result = await pool.query(
       "DELETE FROM books WHERE id = $1",
