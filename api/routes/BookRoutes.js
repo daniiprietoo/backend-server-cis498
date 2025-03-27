@@ -43,7 +43,7 @@ bookRouter.post("/updateBook", async (req, res) => {
   }
 });
 
-bookRouter.post("/deleteBook", async (req, res) => {
+bookRouter.get("/deleteBook", async (req, res) => {
   try {
     var id1 = req.body.id;
     console.log(id1);
@@ -59,13 +59,13 @@ bookRouter.post("/deleteBook", async (req, res) => {
   }
 });
 
-bookRouter.post("/addbook", async (req, res) => {
+bookRouter.post("/addBook", async (req, res) => {
   try {
-    const { title, author, price, description } = req.body;
+    const { title, author, price, category_id} = req.body;
     console.log(req.body);
     const result = await pool.query(
-      "INSERT INTO books (title, author, price, description) VALUES ($1, $2, $3, $4) RETURNING *",
-      [title, author, price, description]
+      "INSERT INTO books (title, author, price, category_id) VALUES ($1, $2, $3, $4) RETURNING *",
+      [title, author, price, category_id]
     );
     res.json({ rows: result.rows });
   } catch (error) {
